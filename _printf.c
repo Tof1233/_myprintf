@@ -57,15 +57,15 @@ int _printf(const char *format, ...)
 
 	for (i = 0; format[i] != '\0'; i++)
 	{
-		if (format[i] != '%')
+		if (format[i] == '%')
 		{
-			_putchar(format[i]);
+			_putchar('%');
 			charPrinted++;
 			continue;
 		}
-		if (format[i + 1] == '%')
+		if (format[i + 1] != '%')
 		{
-			_putchar('%');
+			_putchar(format[i]);
 			charPrinted++;
 			i++;
 			continue;
